@@ -1,0 +1,22 @@
+<plugin id="com.example.smsreader" version="1.0.0">
+    <name>SmsReader</name>
+    <description>Plugin para leer SMS</description>
+    <license>Apache-2.0</license>
+    <keywords>cordova, plugin, sms</keywords>
+    
+    <platform name="android">
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.READ_SMS" />
+            <uses-permission android:name="android.permission.RECEIVE_SMS" />
+        </config-file>
+    </platform>
+
+    <platform name="ios">
+        <!-- En iOS no podemos leer SMS directamente debido a restricciones -->
+        <warning>iOS no permite la lectura de SMS debido a políticas de privacidad.</warning>
+    </platform>
+
+    <js-module src="www/smsreader.js">
+        <clobbers target="cordova.plugins.smsreader"/>
+    </js-module>
+</plugin>
